@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New assessment · AI Health Therapist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="masthead">
+    <div class="shell masthead__inner">
+        <a class="wordmark" href="/home">
+            <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M1 10h3.5l2-5 3 10 2.5-7 1.8 2H19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            AI Health Therapist
+        </a>
+        <nav>
+            <a href="/home">Home</a>
+            <a href="/app" aria-current="page">New assessment</a>
+            <button type="button" class="btn btn--plain" data-signout>Sign out</button>
+        </nav>
+    </div>
+</header>
+
+<main id="main" class="shell">
+    <div class="workspace">
+
+        <aside class="rail">
+            <h2>Your details</h2>
+            <dl id="profile-summary">
+                <div><dt>Loading</dt><dd>&hellip;</dd></div>
+            </dl>
+
+            <h2>Earlier questions</h2>
+            <ul id="history-list">
+                <li style="color:var(--muted);padding:0.6rem 0;border:0">Nothing yet.</li>
+            </ul>
+        </aside>
+
+        <div class="compose">
+            <h1>What is going on?</h1>
+            <p class="lede">When it started, where you feel it, what makes it better or worse.</p>
+
+            <div id="notice" class="notice" hidden></div>
+
+            <form id="analyse-form" novalidate>
+                <label class="visually-hidden" for="problem">Describe your symptoms</label>
+                <textarea id="problem" maxlength="1500"
+                    placeholder="For the last three days I have had a dull headache behind my eyes, worse in the afternoon. Screens make it worse and it eases if I lie down."></textarea>
+                <div class="row">
+                    <span class="counter"><span id="count">0</span>/1500</span>
+                    <button type="submit" class="btn" id="analyse-btn">Get an assessment</button>
+                </div>
+            </form>
+
+            <div class="thinking" id="thinking" hidden>
+                <span class="pulse"></span>
+                <span>Reading what you wrote and putting the assessment together&hellip;</span>
+            </div>
+
+            <article class="report" id="report" hidden aria-live="polite"></article>
+        </div>
+    </div>
+</main>
+
+<footer class="page-foot">
+    <div class="shell">
+        <p class="disclaimer">
+            This is general health information produced by an AI model. It is not a
+            diagnosis and it can be wrong. Please check anything that worries you with a
+            qualified clinician. In an emergency, call your local emergency number.
+        </p>
+    </div>
+</footer>
+
+<!-- The body figure lives here as markup so CSS can style each region directly.
+     No external image, so nothing can misalign or fail to load. -->
+<template id="body-template">
+<svg class="body-figure" viewBox="0 0 200 440" role="img" aria-labelledby="figure-title">
+    <title id="figure-title">Body diagram with affected areas highlighted</title>
+    <g stroke-linejoin="round">
+        <ellipse class="region" data-region="head" cx="100" cy="34" rx="23" ry="27"/>
+        <path class="region" data-region="throat" d="M89 57 h22 v12 q0 5 -11 5 q-11 0 -11 -5 Z"/>
+        <path class="region" data-region="chest" d="M74 72 L126 72 Q134 75 134 86 L132 142 L68 142 L66 86 Q66 75 74 72 Z"/>
+        <path class="region" data-region="abdomen" d="M68 142 L132 142 L129 192 L71 192 Z"/>
+        <path class="region" data-region="pelvis" d="M71 192 L129 192 L126 220 Q100 231 74 220 Z"/>
+        <path class="region" data-region="arms" d="M66 78 Q53 83 49 101 L41 162 Q39 181 43 197 L57 197 Q54 178 56 160 L65 112 Z"/>
+        <path class="region" data-region="arms" d="M134 78 Q147 83 151 101 L159 162 Q161 181 157 197 L143 197 Q146 178 144 160 L135 112 Z"/>
+        <ellipse class="region" data-region="hands" cx="50" cy="209" rx="9" ry="13"/>
+        <ellipse class="region" data-region="hands" cx="150" cy="209" rx="9" ry="13"/>
+        <path class="region" data-region="legs" d="M74 220 L99 220 L98 300 L94 388 L75 388 L72 302 Z"/>
+        <path class="region" data-region="legs" d="M101 220 L126 220 L128 302 L125 388 L106 388 L102 300 Z"/>
+        <path class="region" data-region="feet" d="M75 388 L94 388 L94 400 Q94 405 84 405 L77 405 Q75 405 75 400 Z"/>
+        <path class="region" data-region="feet" d="M106 388 L125 388 L125 400 Q125 405 123 405 L116 405 Q106 405 106 400 Z"/>
+    </g>
+</svg>
+</template>
+
+<script src="/assets/js/common.js"></script>
+<script src="/assets/js/app.js"></script>
+</body>
+</html>

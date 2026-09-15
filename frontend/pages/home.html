@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home · AI Health Therapist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="masthead">
+    <div class="shell masthead__inner">
+        <a class="wordmark" href="/home">
+            <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M1 10h3.5l2-5 3 10 2.5-7 1.8 2H19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            AI Health Therapist
+        </a>
+        <nav>
+            <a href="/home" aria-current="page">Home</a>
+            <a href="/app">New assessment</a>
+            <button type="button" class="btn btn--plain" data-signout>Sign out</button>
+        </nav>
+    </div>
+</header>
+
+<main id="main" class="shell">
+    <section class="hero">
+        <h1>Hello <em id="greeting-name">there</em>, what is bothering you today?</h1>
+        <p>Tell it in your own words — when it started, what it feels like, what makes it
+           better or worse. The more ordinary detail you give, the more useful the answer.</p>
+        <div class="actions">
+            <a class="btn" href="/app">Start an assessment</a>
+            <a class="btn btn--plain" href="/onboarding">Review your profile</a>
+        </div>
+    </section>
+
+    <section class="explainer">
+        <div>
+            <h3>You describe it plainly</h3>
+            <p>No symptom checkboxes or medical vocabulary. Write it the way you would
+               explain it to a friend.</p>
+        </div>
+        <div>
+            <h3>You get structure back</h3>
+            <p>What it might be, how confident that is, what you can try now, and the
+               specific signs that mean you should stop waiting.</p>
+        </div>
+        <div>
+            <h3>You take it further</h3>
+            <p>Every assessment ends with questions worth asking a real clinician, so the
+               appointment starts further along.</p>
+        </div>
+    </section>
+</main>
+
+<footer class="page-foot">
+    <div class="shell">
+        <p class="disclaimer">
+            AI Health Therapist gives general health information and cannot diagnose you.
+            It can be wrong. Treat it as a starting point for a conversation with a
+            qualified clinician, not a replacement for one. In an emergency, call your
+            local emergency number.
+        </p>
+    </div>
+</footer>
+
+<script src="/assets/js/common.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const me = await api('/api/user');
+        if (me.username) $('#greeting-name').textContent = me.username;
+    } catch (error) {
+        /* the greeting simply stays generic */
+    }
+});
+</script>
+</body>
+</html>

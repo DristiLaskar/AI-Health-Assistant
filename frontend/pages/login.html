@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in · AI Health Therapist</title>
+<meta name="description" content="Describe how you feel and get a clear, structured read on what it could be and what to do next.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+<main class="split">
+    <section class="split__pitch">
+        <a class="wordmark" href="/login" style="color:#fff">
+            <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M1 10h3.5l2-5 3 10 2.5-7 1.8 2H19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            AI Health Therapist
+        </a>
+
+        <div>
+            <h1>Put words to how you <em>feel</em>.</h1>
+            <p>Describe your symptoms in ordinary language. You get back a plain-English
+               read on what might be going on, what you can try, and when it is worth
+               seeing someone.</p>
+        </div>
+
+        <p class="disclaimer" style="color:#8ea9a1">
+            This tool gives health information, not a diagnosis. If something feels like an
+            emergency, contact your local emergency number instead.
+        </p>
+    </section>
+
+    <section class="split__form">
+        <div>
+            <div id="notice" class="notice" hidden></div>
+
+            <form id="signin-form" novalidate>
+                <h2 style="font-size:var(--step-3);margin-bottom:1.5rem">Sign in</h2>
+                <div class="field">
+                    <label for="signin-username">Username</label>
+                    <input type="text" id="signin-username" name="username" autocomplete="username" required>
+                </div>
+                <div class="field">
+                    <label for="signin-password">Password</label>
+                    <input type="password" id="signin-password" name="password" autocomplete="current-password" required>
+                </div>
+                <button type="submit" class="btn btn--wide">Sign in</button>
+                <p class="form-switch">
+                    First time here? <button type="button" id="to-signup">Create an account</button>
+                </p>
+            </form>
+
+            <form id="signup-form" novalidate hidden>
+                <h2 style="font-size:var(--step-3);margin-bottom:1.5rem">Create an account</h2>
+                <div class="field">
+                    <label for="signup-username">Username</label>
+                    <span class="hint">3 to 32 characters. Letters, numbers, dots, dashes or underscores.</span>
+                    <input type="text" id="signup-username" name="username" autocomplete="username" required>
+                </div>
+                <div class="field">
+                    <label for="signup-password">Password</label>
+                    <span class="hint">At least 8 characters.</span>
+                    <input type="password" id="signup-password" name="password" autocomplete="new-password" required>
+                </div>
+                <button type="submit" class="btn btn--wide">Create account</button>
+                <p class="form-switch">
+                    Already have one? <button type="button" id="to-signin">Sign in</button>
+                </p>
+            </form>
+        </div>
+    </section>
+</main>
+
+<script src="/assets/js/common.js"></script>
+<script src="/assets/js/login.js"></script>
+</body>
+</html>

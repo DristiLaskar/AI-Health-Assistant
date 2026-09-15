@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Set up your profile · AI Health Therapist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+<header class="masthead">
+    <div class="shell masthead__inner">
+        <span class="wordmark">
+            <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M1 10h3.5l2-5 3 10 2.5-7 1.8 2H19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            AI Health Therapist
+        </span>
+        <nav><button type="button" class="btn btn--plain" data-signout>Sign out</button></nav>
+    </div>
+</header>
+
+<main class="shell">
+    <div class="narrow">
+        <div class="progress" aria-hidden="true">
+            <span class="is-done" data-bar="1"></span>
+            <span data-bar="2"></span>
+        </div>
+
+        <h1 style="font-size:var(--step-4);margin-bottom:0.5rem">A little about you</h1>
+        <p style="color:var(--ink-soft);margin-bottom:2rem">
+            Two short steps. This context is sent with each question so the answers fit
+            you rather than a generic person. You can leave anything blank.
+        </p>
+
+        <div id="notice" class="notice" hidden></div>
+
+        <form id="onboarding-form" novalidate>
+            <section class="step is-active" data-step="1">
+                <fieldset>
+                    <legend>How would you like to be described?</legend>
+                    <div class="choices">
+                        <label class="choice"><input type="radio" name="gender" value="Female"><span>Female</span></label>
+                        <label class="choice"><input type="radio" name="gender" value="Male"><span>Male</span></label>
+                        <label class="choice"><input type="radio" name="gender" value="Other"><span>Other</span></label>
+                        <label class="choice"><input type="radio" name="gender" value="Prefer not to say"><span>Prefer not to say</span></label>
+                    </div>
+                </fieldset>
+
+                <div class="field">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" min="1" max="120" inputmode="numeric" placeholder="21" required>
+                </div>
+
+                <div class="field" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+                    <div>
+                        <label for="height">Height in cm</label>
+                        <span class="hint">Optional</span>
+                        <input type="number" id="height" name="height" min="50" max="260" inputmode="numeric" placeholder="165">
+                    </div>
+                    <div>
+                        <label for="weight">Weight in kg</label>
+                        <span class="hint">Optional</span>
+                        <input type="number" id="weight" name="weight" min="10" max="400" inputmode="numeric" placeholder="58">
+                    </div>
+                </div>
+            </section>
+
+            <section class="step" data-step="2">
+                <div class="field">
+                    <label for="condition-input">Ongoing conditions</label>
+                    <span class="hint">Anything you live with day to day. Type and press Enter, or pick from below.</span>
+                    <div class="tagbox">
+                        <div class="taglist" id="condition-tags"></div>
+                        <input type="text" id="condition-input" placeholder="Start typing…" autocomplete="off">
+                    </div>
+                    <div class="suggestions" id="condition-suggestions"></div>
+                </div>
+
+                <div class="field">
+                    <label for="allergy-input">Allergies</label>
+                    <span class="hint">Medicines, foods, anything else. This is used to keep suggestions safe for you.</span>
+                    <div class="tagbox">
+                        <div class="taglist" id="allergy-tags"></div>
+                        <input type="text" id="allergy-input" placeholder="Start typing…" autocomplete="off">
+                    </div>
+                    <div class="suggestions" id="allergy-suggestions"></div>
+                </div>
+            </section>
+
+            <div class="step-actions">
+                <button type="button" class="btn btn--plain" id="back-btn" hidden>Back</button>
+                <button type="button" class="btn" id="next-btn" style="margin-left:auto">Continue</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<script src="/assets/js/common.js"></script>
+<script src="/assets/js/onboarding.js"></script>
+</body>
+</html>
