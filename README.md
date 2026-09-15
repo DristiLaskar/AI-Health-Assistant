@@ -1,4 +1,4 @@
-# AI Health Therapist
+# AI Health Assistant
 
 Describe how you feel in ordinary language and get back a structured, readable
 assessment: what it might be, how confident that is, what you can try now, the
